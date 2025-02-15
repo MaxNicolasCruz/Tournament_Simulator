@@ -1,18 +1,18 @@
-import random
-from team import Team
-from tournament import Tournament
+'''Métodos:
 
-class Tournament_manager(Tournament):
-    """
-    Manages the creation, searching, deletion, and management of teams,
-    as well as the initiation of the tournament
-    """
-    def __init__(self):
-        """
-        Initializes the Tournament_manager with an empty list of teams
-        """
-        self.teams = []
+create_team(name, media): Crea un nuevo equipo.
+search_team(name): Busca un equipo por nombre.
+delete_team(name): Elimina un equipo por nombre.
+show_teams(): Muestra la lista de equipos ordenados por puntuación media.
+generate_teams(): Genera equipos de prueba (podría estar aquí o en un módulo de pruebas).
+'''
+from .team import Team
 
+class Team_manager():
+    def __init__(self, teams):
+        self.teams = teams
+        # self.generate_test_teams()
+    
     def create_team(self, name, media):
         """
         Creates a new team and adds it to the list of teams if the name is valid and available
@@ -53,6 +53,8 @@ class Tournament_manager(Tournament):
         self.teams.append(new_team)
         return True
 
+
+    
     def search_team(self, name):
         """
         Searches for a team by name in the list of teams
@@ -67,7 +69,7 @@ class Tournament_manager(Tournament):
         #Traverse the list of teams, searching for that name 
         team = next((team for team in self.teams if team.name.lower() == name.lower()), None)
         return team if team else 'There is no team with that name'
-
+    
     def delete_team(self, name):
         """
         Deletes a team by name from the list of teams
@@ -99,20 +101,20 @@ class Tournament_manager(Tournament):
         team_order = sorted(self.teams, key=lambda team: team.media, reverse=True)
         return [f'{team.name}: {round(team.media, 2)} ({team.cup})' for team in team_order]
 
-    def start_tournament(self):
+    # Método para crear equipos con una media de 1 a manera de prueba(test)
+    def generate_test_teams(self):
         """
-        Starts the tournament if the number of teams is valid
-
-        Returns:
-            list: A list of games to be played in the tournament
-            str: A message indicating that the tournament cannot be started due to an invalid number of teams
+        Generates 32 teams with names of national selections and a media score of 1.
         """
-        #Validate that there are enough teams in the list to start the tournament 
-        if len(self.teams) not in (4, 8, 16, 32):
-            return 'You can only create the tournament with 4, 8, 16 or 32 teams.'
-        #Reorganize the list random
-        random.shuffle(self.teams)
-        #Create an object of class Tournament and causes it to start 
-        tournament = Tournament(self.teams)
-        return tournament.game()
+        selection_names = [
+            "Brazil", "Argentina", "France", "Germany", "Spain", "Italy", 
+            "Portugal", "Netherlands", "England", "Belgium", "Croatia", "Uruguay", 
+            "Mexico", "USA", "Japan", "South Korea", "Colombia", "Chile", 
+            "Sweden", "Denmark", "Switzerland", "Poland", "Senegal", "Morocco", 
+            "Nigeria", "Egypt", "Ivory Coast", "Australia", "Peru", "Ghana", 
+            "Serbia", "Turkey"
+        ]
+        
+        for name in selection_names:
+            self.create_team(name, 1.0)
 

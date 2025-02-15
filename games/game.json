@@ -1,0 +1,59 @@
+{
+    "partida_id": "partida_001",
+    "version": "2.0.0",
+    "torneos": [
+        {
+            "fecha": "2025-02-11",
+            "edicion": 1,
+            "numero_equipos": 8,
+            "equipos": ["Equipo A", "Equipo B", "Equipo C", "Equipo D", "Equipo E", "Equipo F", "Equipo G", "Equipo H"],
+            "clasificacion": {
+                "favoritos": ["Equipo C", "Equipo E"],
+                "sorpresa": ["Equipo H"],
+                "decepcion": ["Equipo A"],
+                "peores": ["Equipo G"]
+            },
+            "top_4": {
+                "campeón": "Equipo C",
+                "subcampeón": "Equipo E",
+                "tercer_lugar": "Equipo A",
+                "cuarto_lugar": "Equipo H"
+            },
+            "duelos": [
+                {
+                    "fase": "Cuartos de final",
+                    "partidos": [
+                        {"equipo1": "Equipo A", "equipo2": "Equipo B", "resultado": "2-1"},
+                        {"equipo1": "Equipo C", "equipo2": "Equipo D", "resultado": "3-2"},
+                        {"equipo1": "Equipo E", "equipo2": "Equipo F", "resultado": "1-0"},
+                        {"equipo1": "Equipo G", "equipo2": "Equipo H", "resultado": "0-1"}
+                    ]
+                },
+                {
+                    "fase": "Semifinal",
+                    "partidos": [
+                        {"equipo1": "Equipo A", "equipo2": "Equipo C", "resultado": "1-3"},
+                        {"equipo1": "Equipo E", "equipo2": "Equipo H", "resultado": "2-0"}
+                    ]
+                },
+                {
+                    "fase": "Final",
+                    "partidos": [
+                        {"equipo1": "Equipo C", "equipo2": "Equipo E", "resultado": "2-1"}
+                    ]
+                },
+                {
+                    "fase": "Partido por el 3er lugar",
+                    "partidos": [
+                        {"equipo1": "Equipo A", "equipo2": "Equipo H", "resultado": "1-0"}
+                    ]
+                }
+            ]
+        }
+    ],
+    "historial_competencias": {
+        "Equipo A vs Equipo B": {"victorias_A": 3, "victorias_B": 2},
+        "Equipo C vs Equipo E": {"victorias_C": 5, "victorias_E": 4},
+        "Equipo H vs Equipo G": {"victorias_H": 1, "victorias_G": 0}
+    }
+}
